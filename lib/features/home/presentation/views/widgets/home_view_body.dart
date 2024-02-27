@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../../../../../core/utils/styles.dart';
 import 'home_appbar.dart';
-import 'books_list_view.dart';
+import 'featured_books_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
