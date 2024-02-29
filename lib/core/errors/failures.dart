@@ -39,14 +39,8 @@ class ServerFailure extends Failure {
   }
 
   factory ServerFailure.fromResponse(int? statusCode, dynamic response) {
-    if (statusCode == 422) {
-      try {
-        return ServerFailure(response['error']['email'][0]);
-      } catch (e) {
-        return ServerFailure(response['error']['password'][0]);
-      }
-    } else if (statusCode == 401) {
-      return ServerFailure(response['message']);
+    if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
+      return ServerFailure(response['error']['message']);
     } else if (statusCode == 404) {
       return ServerFailure('Your request not found, Please try later!');
     } else if (statusCode == 500) {
